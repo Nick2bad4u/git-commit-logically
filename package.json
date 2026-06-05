@@ -1,0 +1,49 @@
+{
+  "name": "git-commit-logically-skill",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Codex skill for committing current git changes in logical local groups.",
+  "license": "Unlicense",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nick2bad4u/git-commit-logically.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nick2bad4u/git-commit-logically/issues"
+  },
+  "homepage": "https://github.com/Nick2bad4u/git-commit-logically#readme",
+  "keywords": [
+    "agent-skill",
+    "agent-skills",
+    "ai-agent",
+    "codex",
+    "commit",
+    "git",
+    "openai",
+    "universal"
+  ],
+  "files": [
+    "SKILL.md",
+    "LICENSE.txt",
+    "agents/",
+    "assets/",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "README.md",
+    "SECURITY.md"
+  ],
+  "engines": {
+    "node": ">=22.14"
+  },
+  "scripts": {
+    "validate": "node tools/validate-skill-package.mjs",
+    "pack:dry-run": "npm pack --dry-run",
+    "release:verify": "npm run validate && npm run pack:dry-run"
+  },
+  "codexSkill": {
+    "name": "git-commit-logically",
+    "path": ".",
+    "githubReleaseAssetPrefix": "git-commit-logically-skill"
+  }
+}
