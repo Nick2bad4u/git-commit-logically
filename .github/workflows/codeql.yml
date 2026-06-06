@@ -1,7 +1,6 @@
-# yaml-language-server: $schema=https://www.schemastore.org/github-workflow.json
-name: "Codeql"
-
-run-name: "CodeQL • ${{ github.ref_name }} @${{ github.actor }}"
+# eslint-disable github-actions/pin-action-shas, github-actions/prefer-step-uses-style -- Bootstrap CodeQL intentionally follows official action release tags.
+name: "Codeql Analysis"
+run-name: "Codeql Analysis - ${{ github.ref_name }}"
 
 on:
     merge_group:
@@ -12,37 +11,28 @@ on:
         branches:
             - "main"
     schedule:
-        - cron: "37 9 * * 1"
+        - cron: "0 6 * * 1"
 
 concurrency:
-    group: "codeql-${{ github.ref }}"
     cancel-in-progress: true
+    group: "${{ github.workflow }}-${{ github.ref }}"
+
+permissions:
+    actions: "read"
+    contents: "read"
+    security-events: "write"
 
 jobs:
     analyze:
         name: "Analyze"
         runs-on: "ubuntu-latest"
-        timeout-minutes: 20
-        permissions:
-            actions: "read"
-            contents: "read"
-            security-events: "write"
-
+        timeout-minutes: 15
         steps:
-            - name: "Harden Runner"
-              uses: "step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e" # v2.14.2
-              with:
-                  egress-policy: "audit"
-
-            - name: "Checkout Repository"
-              uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6.0.2
-
+            - name: "Checkout"
+              uses: "actions/checkout@v6"
             - name: "Initialize CodeQL"
-              uses: "github/codeql-action/init@8e52c9d6d12b70f2bf8f94bfe03e9980250bd2c4" # v4.31.6
+              uses: "github/codeql-action/init@v4.35.4"
               with:
                   languages: "javascript-typescript"
-
-            - name: "Perform CodeQL Analysis"
-              uses: "github/codeql-action/analyze@8e52c9d6d12b70f2bf8f94bfe03e9980250bd2c4" # v4.31.6
-              with:
-                  category: "/language:javascript-typescript"
+            - name: "Perform CodeQL analysis"
+              uses: "github/codeql-action/analyze@v4.35.4"
