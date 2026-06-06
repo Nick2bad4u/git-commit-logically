@@ -1,50 +1,63 @@
 {
-  "name": "git-commit-logically-skill",
-  "version": "1.0.0",
-  "private": false,
-  "description": "Codex skill for committing current git changes in logical local groups.",
-  "license": "Unlicense",
-  "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nick2bad4u/git-commit-logically.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Nick2bad4u/git-commit-logically/issues"
-  },
-  "homepage": "https://github.com/Nick2bad4u/git-commit-logically#readme",
-  "keywords": [
-    "agent-skill",
-    "agent-skills",
-    "ai-agent",
-    "codex",
-    "commit",
-    "git",
-    "openai",
-    "universal"
-  ],
-  "files": [
-    "SKILL.md",
-    "LICENSE.txt",
-    "agents/",
-    "assets/",
-    "CHANGELOG.md",
-    "CONTRIBUTING.md",
-    "README.md",
-    "SECURITY.md"
-  ],
-  "engines": {
-    "node": ">=22.14"
-  },
-  "scripts": {
-    "validate": "node tools/validate-skill-package.mjs",
-    "pack:dry-run": "npm pack --dry-run",
-    "publish:local": "npm run release:verify && npm publish --access public",
-    "release:verify": "npm run validate && npm run pack:dry-run"
-  },
-  "codexSkill": {
-    "name": "git-commit-logically",
-    "path": ".",
-    "githubReleaseAssetPrefix": "git-commit-logically-skill"
-  }
+    "name": "git-commit-logically-skill",
+    "version": "1.0.0",
+    "private": false,
+    "description": "Codex skill for committing current git changes in logical local groups.",
+    "keywords": [
+        "agent-skill",
+        "agent-skills",
+        "ai-agent",
+        "codex",
+        "commit",
+        "git",
+        "openai",
+        "universal"
+    ],
+    "homepage": "https://github.com/Nick2bad4u/git-commit-logically#readme",
+    "bugs": {
+        "url": "https://github.com/Nick2bad4u/git-commit-logically/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Nick2bad4u/git-commit-logically.git"
+    },
+    "license": "Unlicense",
+    "type": "module",
+    "files": [
+        "SKILL.md",
+        "LICENSE.txt",
+        "agents/",
+        "assets/",
+        "CHANGELOG.md",
+        "CONTRIBUTING.md",
+        "README.md",
+        "SECURITY.md"
+    ],
+    "scripts": {
+        "lint": "npx eslint .",
+        "lint:gitleaks": "gitleaks dir --config .gitleaks.toml .",
+        "lint:package-json": "npmPkgJsonLint . --config .npmpackagejsonlintrc.json",
+        "lint:yamllint": "yamllint -c .yamllint .",
+        "pack:dry-run": "npm pack --dry-run",
+        "publish:local": "npm run release:verify && npm publish --access public",
+        "release:verify": "npm run validate && npm run pack:dry-run",
+        "validate": "node tools/validate-skill-package.mjs"
+    },
+    "devDependencies": {
+        "eslint-config-nick2bad4u": "^1.2.7",
+        "gitleaks-config-nick2bad4u": "^1.0.2",
+        "npm-package-json-lint": "^10.4.0",
+        "npm-package-json-lint-config-nick2bad4u": "^1.0.2",
+        "prettier": "^3.8.3",
+        "prettier-config-nick2bad4u": "^1.0.14",
+        "yamllint-config-nick2bad4u": "^1.0.1"
+    },
+    "engines": {
+        "node": ">=22.14"
+    },
+    "codexSkill": {
+        "name": "git-commit-logically",
+        "path": ".",
+        "githubReleaseAssetPrefix": "git-commit-logically-skill"
+    }
 }

@@ -3,7 +3,7 @@ name: git-commit-logically
 description: Commit outstanding local git changes into coherent local commits without pushing. Use when the user asks Codex to commit the current worktree, commit all changes, split current changes into logical commits, follow repository commit-message rules, or create local commits from the current git tree.
 license: "Unlicense"
 metadata:
-  short-description: "Commit current changes in logical groups"
+ short-description: "Commit current changes in logical groups"
 ---
 
 # Git Commit Logically
