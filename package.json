@@ -41,7 +41,8 @@
         "pack:dry-run": "npm pack --dry-run",
         "publish:local": "npm run release:verify && npm publish --access public",
         "release:verify": "npm run validate && npm run pack:dry-run",
-        "validate": "node tools/validate-skill-package.mjs"
+        "validate": "node tools/validate-skill-package.mjs",
+        "update-actions": "npx actions-up --yes --style sha"
     },
     "devDependencies": {
         "eslint-config-nick2bad4u": "^1.2.7",
