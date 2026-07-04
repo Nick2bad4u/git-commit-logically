@@ -24,10 +24,7 @@
   "license": "Unlicense",
   "type": "module",
   "files": [
-    "SKILL.md",
-    "LICENSE.txt",
-    "agents/",
-    "assets/",
+    "skills/",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
     "README.md",
@@ -59,7 +56,7 @@
   },
   "codexSkill": {
     "name": "git-commit-logically",
-    "path": ".",
+    "path": "skills/git-commit-logically",
     "githubReleaseAssetPrefix": "git-commit-logically-skill"
   }
 }

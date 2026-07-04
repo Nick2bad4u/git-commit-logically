@@ -1,11 +1,11 @@
 # Git Commit Logically Skill Guidance
 
-This repository packages the `git-commit-logically` Codex/open-agent skill. Keep changes focused on the root skill payload and small packaging metadata.
+This repository packages the `git-commit-logically` Codex/open-agent skill. Keep changes focused on `skills/git-commit-logically` and small packaging metadata.
 
 ## Scope
 
-- Treat `SKILL.md` as the skill entrypoint.
-- Keep `agents/openai.yaml`, `assets/`, and `LICENSE.txt` synchronized with the packaged skill.
+- Treat `skills/git-commit-logically/SKILL.md` as the skill entrypoint.
+- Keep `skills/git-commit-logically/agents/openai.yaml`, `skills/git-commit-logically/assets/`, and `skills/git-commit-logically/LICENSE.txt` synchronized with the packaged skill.
 - Do not add scripts that automatically stage or commit arbitrary changes.
 
 ## Validation
@@ -13,7 +13,7 @@ This repository packages the `git-commit-logically` Codex/open-agent skill. Keep
 Run the narrowest useful checks after edits:
 
 ```powershell
-python "C:\Users\Nick\.codex\skills\.system\skill-creator\scripts\quick_validate.py" .
+python "C:\Users\Nick\.codex\skills\.system\skill-creator\scripts\quick_validate.py" .\skills\git-commit-logically
 npm run release:verify
 ```
 

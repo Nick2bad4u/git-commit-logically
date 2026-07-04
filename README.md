@@ -6,8 +6,8 @@ An open-agent skill for committing outstanding git changes into coherent local c
 
 This repository provides:
 
-- a reusable `git-commit-logically` skill (`SKILL.md`)
-- OpenAI-compatible display metadata in `agents/openai.yaml`
+- a reusable `git-commit-logically` skill (`skills/git-commit-logically/SKILL.md`)
+- OpenAI-compatible display metadata in `skills/git-commit-logically/agents/openai.yaml`
 - package metadata for local validation and installation through `npx skills`
 
 ## What This Skill Does
@@ -17,12 +17,15 @@ The skill guides Codex to inspect the current worktree, read repository commit-m
 ## Repository Layout
 
 ```text
-SKILL.md
-agents/
-  openai.yaml
-assets/
-  git-commit-logically-small.svg
-  git-commit-logically.svg
+skills/
+  git-commit-logically/
+    SKILL.md
+    LICENSE.txt
+    agents/
+      openai.yaml
+    assets/
+      git-commit-logically-small.svg
+      git-commit-logically.svg
 README.md
 CONTRIBUTING.md
 SECURITY.md
@@ -46,6 +49,6 @@ npx skills add Nick2bad4u/git-commit-logically -g --agent universal -y
 ## Validation
 
 ```powershell
-python "C:\Users\Nick\.codex\skills\.system\skill-creator\scripts\quick_validate.py" .
+python "C:\Users\Nick\.codex\skills\.system\skill-creator\scripts\quick_validate.py" .\skills\git-commit-logically
 npm run release:verify
 ```

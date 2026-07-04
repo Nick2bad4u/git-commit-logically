@@ -87,12 +87,12 @@ assert(
         "git+https://github.com/Nick2bad4u/git-commit-logically.git",
     "repository.url must exactly match the GitHub repository for npm trusted publishing"
 );
-assert(skill.path === ".", "codexSkill.path must point at the repository root");
+assert(
+    skill.path === "skills/git-commit-logically",
+    "codexSkill.path must point at skills/git-commit-logically"
+);
 for (const requiredFile of [
-    "SKILL.md",
-    "LICENSE.txt",
-    "agents/",
-    "assets/",
+    "skills/",
     "README.md",
     "CHANGELOG.md",
     "SECURITY.md",
