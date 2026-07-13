@@ -132,7 +132,8 @@ jobs:
                   } >> "$GITHUB_OUTPUT"
 
             - name: "Prepare npm package version"
-              run: 'npm version --no-git-tag-version "${{ steps.vars.outputs.version }}"'
+              run: >-
+                  npm version --no-git-tag-version "${{ steps.vars.outputs.version }}"
 
             - name: "Validate npm package"
               run: "npm run release:verify"

@@ -24,20 +24,20 @@ Use this skill to turn the current worktree into one or more high-quality local 
 
 1. Confirm the target is a git repository.
 
-```powershell
-git rev-parse --show-toplevel
-git branch --show-current
-```
+   ```powershell
+   git rev-parse --show-toplevel
+   git branch --show-current
+   ```
 
 If the command fails, stop and say the directory is not a git repository.
 
 2. Read repository commit-message rules before inspecting changes.
 
-```powershell
-if (Test-Path ".github/agent-commit-message-instructions.md") {
-  Get-Content ".github/agent-commit-message-instructions.md"
-}
-```
+   ```powershell
+   if (Test-Path ".github/agent-commit-message-instructions.md") {
+     Get-Content ".github/agent-commit-message-instructions.md"
+   }
+   ```
 
 If no instruction file exists, inspect recent commits and infer the local convention:
 
@@ -47,11 +47,11 @@ git log -5 --pretty=format:"%h %s"
 
 3. Inspect the full outstanding tree.
 
-```powershell
-git status --short --untracked-files=all
-git diff --stat
-git diff --cached --stat
-```
+   ```powershell
+   git status --short --untracked-files=all
+   git diff --stat
+   git diff --cached --stat
+   ```
 
 Then read focused diffs until each changed path has a clear purpose:
 
@@ -94,11 +94,11 @@ If patch staging would require an interactive prompt, avoid it and use a non-int
 
 6. Verify the staged group before committing.
 
-```powershell
-git diff --cached --stat
-git diff --cached --check
-git diff --cached
-```
+   ```powershell
+   git diff --cached --stat
+   git diff --cached --check
+   git diff --cached
+   ```
 
 Run `git diff --cached` with focused paths when the staged patch is large. Do not run unrelated test or formatting commands unless the user asked for verification or the repo's commit instructions require it.
 
