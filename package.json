@@ -42,6 +42,7 @@
         "changelog:generate": "git cliff --config node_modules/gitcliff-config-nick2bad4u/cliff.toml --github-repo Nick2bad4u/git-commit-logically --output CHANGELOG.md",
         "changelog:preview": "git cliff --config node_modules/gitcliff-config-nick2bad4u/cliff.toml --github-repo Nick2bad4u/git-commit-logically --unreleased",
         "changelog:release-notes": "git cliff --config node_modules/gitcliff-config-nick2bad4u/cliff.toml --github-repo Nick2bad4u/git-commit-logically --current",
+        "coverage": "node -e \"require('node:fs').mkdirSync('coverage', { recursive: true })\" && node --test --experimental-test-coverage --test-coverage-include=tools/validate-skill-package.mjs --test-coverage-branches=85 --test-coverage-functions=100 --test-coverage-lines=95 --test-reporter=spec --test-reporter=lcov --test-reporter-destination=stdout --test-reporter-destination=coverage/lcov.info test/validate-skill-package.test.mjs",
         "lint": "npx eslint .",
         "lint:gitleaks": "gitleaks dir --config .gitleaks.toml .",
         "lint:jscpd": "npx jscpd --config node_modules/jscpd-config-nick2bad4u/jscpd.json",
@@ -53,7 +54,8 @@
         "lint:yamllint": "yamllint -c .yamllint .",
         "pack:dry-run": "npm pack --dry-run",
         "publish:local": "npm run release:verify && npm publish --access public",
-        "release:verify": "npm run validate && npm run pack:dry-run",
+        "release:verify": "npm run coverage && npm run validate && npm run pack:dry-run",
+        "test": "node --test test/*.test.mjs",
         "update-actions": "npx actions-up --yes --style sha",
         "update-deps": "npx ncu --configFileName .ncurc.json --configFilePath node_modules/ncu-config-nick2bad4u && npm update --force && npm install --force",
         "validate": "node tools/validate-skill-package.mjs"
