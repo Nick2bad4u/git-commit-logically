@@ -153,3 +153,12 @@ await Promise.all([
 ]);
 
 console.log(`Validated ${pkg.name} skill package metadata.`);
+
+export {
+    frontmatterValue,
+    linesOf,
+    skillRelative,
+    stripCurrentDirectoryPrefix,
+    stripMatchingQuotes,
+    yamlStringValue,
+};
